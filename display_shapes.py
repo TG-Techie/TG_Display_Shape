@@ -20,8 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+
 import displayio
-from adafruit_bitmap_font import bitmap_font
+from adafruit_display_text.text_area import TextArea
 
 def color(r,g,b):
     return (r<< 16) + (g<< 8) + (b)
@@ -35,6 +36,8 @@ purple = color(255,0,255)
 white = color(255,255,255)
 black = color(0,0,0)
 clear = None
+
+default_font = displayio.BuiltinFont
 
 def rect(x, y, width, height, color):
     global _bad_practice
@@ -72,3 +75,9 @@ def vline(x, y, length, thickness, color):
 
 def circle(x, y, radius, color):
     return roundrect(x - radius, y - radius, radius*2, radius*2, radius, color)
+
+"""
+def text(x, y, width, height, color, text, font = None, background = clear):
+    if font == None:
+        font = default_font
+"""
