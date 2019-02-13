@@ -33,9 +33,8 @@ def rect(x, y, width, height, color):
     plt.make_transparent(0)
     plt[1] = color
 
-    shp = displayio.Shape(width, height)
-    tlgrd = displayio.TileGrid(shp, pixel_shader = plt, position = (x,y))
-    return tlgrd
+    return displayio.TileGrid(displayio.Shape(width, height), pixel_shader = plt, position = (x,y))
+
 
 def roundrect(x, y, width, height, radius, color):
     global _bad_practice
@@ -52,9 +51,8 @@ def roundrect(x, y, width, height, radius, color):
         shp.set_boundary(y_pos , int(clip_off), int(width- clip_off))
         shp.set_boundary(height -1 -y_pos, int(clip_off) , int(width- clip_off))
 
+    return displayio.TileGrid(shp, pixel_shader = plt, position = (x,y))
 
-    tlgrd = displayio.TileGrid(shp, pixel_shader = plt, position = (x,y))
-    return tlgrd
 
 def hline(x, y, length, thickness, color):
     return rect(x, y, length, thickness, color)
