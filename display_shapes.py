@@ -26,6 +26,16 @@ from adafruit_bitmap_font import bitmap_font
 def color(r,g,b):
     return (r<< 16) + (g<< 8) + (b)
 
+red = color(255,0,0)
+orange = color(2555,128,0)
+yellow = color(255,255,0)
+green = color(0,255,0)
+blue = color(0,0,255)
+purple = color(255,0,255)
+white = color(255,255,255)
+black = color(0,0,0)
+clear = None
+
 def rect(x, y, width, height, color):
     global _bad_practice
 
